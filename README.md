@@ -1,9 +1,9 @@
-![buddy.js](http://danielstjules.com/buddyjs/logo.png)
+![buddy.js](http://danielstjules.com/github/buddyjs-logo.png)
 
 Magic number detection for javascript. Let Buddy sniff out the unnamed numerical
 constants in your code.
 
-[![Build Status](https://travis-ci.org/danielstjules/buddy.js.png)](https://travis-ci.org/danielstjules/buddy.js)
+[![Build Status](https://travis-ci.org/danielstjules/buddy.js.svg?branch=master)](https://travis-ci.org/danielstjules/buddy.js)
 
 * [Overview](#overview)
   * [What are magic numbers?](#what-are-magic-numbers)
@@ -30,7 +30,7 @@ numbers which are not the sole literal in an object expression or variable
 declaration. Furthermore, specific values can be ignored, such as 0 and 1,
 which are ignored by default.
 
-![intro-screenshot](http://danielstjules.com/buddyjs/intro-updated.png)
+![intro-screenshot](http://danielstjules.com/github/buddyjs-intro.png)
 
 Who's a good boy?
 
@@ -95,8 +95,8 @@ It can be installed via `npm` using:
 npm install -g buddy.js
 ```
 
-If you'd like to use buddy.js with Grunt, take a look at
-[grunt-buddyjs](https://github.com/eugene-bulkin/grunt-buddyjs)
+Also available: [grunt-buddyjs](https://github.com/eugene-bulkin/grunt-buddyjs),
+and [gulp-buddy.js](https://github.com/Semigradsky/gulp-buddy.js)
 
 ## Usage
 
@@ -107,11 +107,24 @@ Options:
 
   -h, --help                             output usage information
   -V, --version                          output the version number
+  -d, --detect-objects                   detect object expressions and properties
   -e, --enforce-const                    require literals to be defined using const
   -i, --ignore <numbers>                 list numbers to ignore (default: 0,1)
   -I, --disable-ignore                   disables the ignore list
-  -r, --reporter [simple|detailed|json]  specify the reporter to use (default: simple)
+  -r, --reporter [simple|detailed|json]  specify reporter to use (default: simple)
   -C, --no-color                         disables colors
+```
+
+If a `.buddyrc` file is located in the project directory, its values will be
+used in place of the defaults listed above. For example:
+
+``` javascript
+{
+  "detectObjects": false,
+  "enforceConst":  false,
+  "ignore":        [0, 1, 2], // Use empty array to disable ignore
+  "reporter":      "detailed"
+}
 ```
 
 ## Integration
@@ -135,7 +148,7 @@ For additional context, try using the detailed reporter. Or, for logging output
 and integration with your quality assurance process, the json reporter can
 be used.
 
-![detailed-reporter](http://danielstjules.com/buddyjs/detailed.png)
+![detailed-reporter](http://danielstjules.com/github/buddyjs-detailed.png)
 
 ## Ignoring numbers
 
